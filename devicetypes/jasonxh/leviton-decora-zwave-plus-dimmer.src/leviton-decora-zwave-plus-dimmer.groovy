@@ -78,7 +78,7 @@ metadata {
         }
 
         standardTile("low", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
-			state "default", label: 'LOW', action: "lowSpeed", icon:"st.Home.home30", backgroundColor: "#ffffff"
+		    	state "default", label: 'LOW', action: "lowSpeed", icon:"st.Home.home30", backgroundColor: "#ffffff"
 			state "LOW", label:'LOW', action: "lowSpeed", icon:"st.Home.home30", backgroundColor: "#79b821"
         }
 
