@@ -309,7 +309,7 @@ def indicatorWhenOn() {
 
 def low() {
     setLevel(10)
-	sendEvent(name: "low", value: "LOW")
+	sendEvent(name: "low", state: "LOW")
 }
 
 def medium() {
