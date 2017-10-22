@@ -78,7 +78,10 @@ metadata {
         }
 
         standardTile("low", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
-            state "default", label: 'LOW', action: "low", icon: "st.Lighting.light14"
+            /*state "default", label: 'LOW', action: "low", icon: "st.Lighting.light14"*/
+			state "default", label: 'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#ffffff"
+			state "LOW", label:'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#79b821"
+			state "ADJUSTING.LOW", label:'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#2179b8"
         }
 
         standardTile("medium", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
@@ -307,6 +310,7 @@ def indicatorWhenOn() {
 }
 
 def low() {
+    sendEvent(name: "currentState", value: "ADJUSTING.LOW" as String, displayed: false)
     setLevel(10)
 }
 
