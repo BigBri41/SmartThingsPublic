@@ -312,6 +312,7 @@ def indicatorWhenOn() {
 def low() {
     sendEvent(name: "level", value: "ADJUSTING.LOW" as String, displayed: false)
     setLevel(10)
+	sendEvent(name: "level", value: "LOW" as String, displayed: false)
 }
 
 def medium() {
