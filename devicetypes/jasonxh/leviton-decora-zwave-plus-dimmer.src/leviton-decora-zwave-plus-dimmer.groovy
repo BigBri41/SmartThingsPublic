@@ -77,25 +77,16 @@ metadata {
             }
         }
 
-        standardTile("low", "device.currentState", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
-            /*state "default", label: 'LOW', action: "low", icon: "st.Lighting.light14"*/
-			state "default", label: 'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#ffffff"
-			state "LOW", label:'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#79b821"
-			state "ADJUSTING.LOW", label:'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#2179b8"
+        standardTile("low", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
+            state "default", label: 'LOW', action: "low", icon: "st.Lighting.light14"
         }
 
-        standardTile("medium", "device.currentState", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
-            /*state "default", label: 'MED', action: "medium", icon: "st.Lighting.light13"*/
-			state "default", label: 'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#ffffff"
-			state "MED", label: 'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#79b821"
-			state "ADJUSTING.MED", label:'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#2179b8"
+        standardTile("medium", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
+            state "default", label: 'MED', action: "medium", icon: "st.Lighting.light13"
         }
 
-        standardTile("high", "device.currentState", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
-            /*state "default", label: 'HIGH', action: "high", icon: "st.Lighting.light11"*/
-			state "default", label: 'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#ffffff"
-			state "HIGH", label: 'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#79b821"
-			state "ADJUSTING.HIGH", label:'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#2179b8"
+        standardTile("high", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
+            state "default", label: 'HIGH', action: "high", icon: "st.Lighting.light11"
         }
 
         valueTile("level", "device.level", width: 4, height: 2, inactiveLabel: false, decoration: "flat") {
@@ -316,20 +307,16 @@ def indicatorWhenOn() {
 }
 
 def low() {
-    sendEvent(name: "currentState", value: "ADJUSTING.LOW" as String, displayed: false)
     setLevel(10)
-	sendEvent(name: "currentState", value: "LOW" as String, displayed: false)
 }
 
 def medium() {
-    sendEvent(name: "currentState", value: "ADJUSTING.MED" as String, displayed: false)
     setLevel(50)
-	sendEvent(name: "currentState", value: "MED" as String, displayed: false)}
+}
 
 def high() {
-    sendEvent(name: "currentState", value: "ADJUSTING.HIGH" as String, displayed: false)
     setLevel(100)
-	sendEvent(name: "currentState", value: "HIGH" as String, displayed: false)}
+}
 
 def levelUp() {
     setLevel(device.currentValue("level") + (levelIncrement ?: defaultLevelIncrement))
