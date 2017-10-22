@@ -85,11 +85,17 @@ metadata {
         }
 
         standardTile("medium", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
-            state "default", label: 'MED', action: "medium", icon: "st.Lighting.light13"
+            /*state "default", label: 'MED', action: "medium", icon: "st.Lighting.light13"*/
+			state "default", label: 'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#ffffff"
+			state "MED", label: 'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#79b821"
+			state "ADJUSTING.MED", label:'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#2179b8",nextState:"MED"
         }
 
         standardTile("high", "device.level", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
-            state "default", label: 'HIGH', action: "high", icon: "st.Lighting.light11"
+            /*state "default", label: 'HIGH', action: "high", icon: "st.Lighting.light11"*/
+			state "default", label: 'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#ffffff"
+			state "HIGH", label: 'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#79b821"
+			state "ADJUSTING.HIGH", label:'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#2179b8",nextState:"HIGH"
         }
 
         valueTile("level", "device.level", width: 4, height: 2, inactiveLabel: false, decoration: "flat") {
@@ -316,12 +322,14 @@ def low() {
 }
 
 def medium() {
+    sendEvent(name: "currentState", value: "ADJUSTING.MED" as String, displayed: false)
     setLevel(50)
-}
+	sendEvent(name: "currentState", value: "MED" as String, displayed: false)}
 
 def high() {
+    sendEvent(name: "currentState", value: "ADJUSTING.HIGH" as String, displayed: false)
     setLevel(100)
-}
+	sendEvent(name: "currentState", value: "HIGH" as String, displayed: false)}
 
 def levelUp() {
     setLevel(device.currentValue("level") + (levelIncrement ?: defaultLevelIncrement))
