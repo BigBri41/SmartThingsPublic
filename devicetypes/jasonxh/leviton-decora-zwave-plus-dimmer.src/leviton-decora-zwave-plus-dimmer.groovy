@@ -81,21 +81,21 @@ metadata {
             /*state "default", label: 'LOW', action: "low", icon: "st.Lighting.light14"*/
 			state "default", label: 'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#ffffff"
 			state "LOW", label:'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#79b821"
-			state "ADJUSTING.LOW", label:'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#2179b8", nextState:"LOW"
+			state "ADJUSTING.LOW", label:'LOW', action: "low", icon:"st.Home.home30", backgroundColor: "#2179b8"
         }
 
         standardTile("medium", "device.currentState", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
             /*state "default", label: 'MED', action: "medium", icon: "st.Lighting.light13"*/
 			state "default", label: 'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#ffffff"
 			state "MED", label: 'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#79b821"
-			state "ADJUSTING.MED", label:'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#2179b8",nextState:"MED"
+			state "ADJUSTING.MED", label:'MED', action: "medium", icon:"st.Home.home30", backgroundColor: "#2179b8"
         }
 
         standardTile("high", "device.currentState", width: 2, height: 2, inactiveLabel: false, decoration: "flat") {
             /*state "default", label: 'HIGH', action: "high", icon: "st.Lighting.light11"*/
 			state "default", label: 'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#ffffff"
 			state "HIGH", label: 'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#79b821"
-			state "ADJUSTING.HIGH", label:'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#2179b8",nextState:"HIGH"
+			state "ADJUSTING.HIGH", label:'HIGH', action: "high", icon:"st.Home.home30", backgroundColor: "#2179b8"
         }
 
         valueTile("level", "device.level", width: 4, height: 2, inactiveLabel: false, decoration: "flat") {
