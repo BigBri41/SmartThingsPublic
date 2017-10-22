@@ -310,7 +310,7 @@ def indicatorWhenOn() {
 }
 
 def low() {
-    sendEvent(name: "currentState", value: "ADJUSTING.LOW" as String, displayed: false)
+    sendEvent(name: "level", value: "ADJUSTING.LOW" as String, displayed: false)
     setLevel(10)
 }
 
